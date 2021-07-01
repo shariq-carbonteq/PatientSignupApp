@@ -47,6 +47,7 @@ function SignupForm(props) {
               <Col span={8}>
                 <Form.Item
                   label="First name"
+                  labelCol={{ span: 8 }}
                   name="firstName"
                   rules={[
                     {
@@ -61,6 +62,7 @@ function SignupForm(props) {
               <Col span={8}>
                 <Form.Item
                   label="Last name"
+                  labelCol={{ span: 8 }}
                   name="lastName"
                   rules={[
                     {
@@ -73,10 +75,11 @@ function SignupForm(props) {
                 </Form.Item>
               </Col>
             </Row>
-            <Row>
+            <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
               <Col span={8}>
                 <Form.Item
                   label="Email"
+                  labelCol={{ span: 8 }}
                   name="email"
                   rules={[
                     {
@@ -88,38 +91,11 @@ function SignupForm(props) {
                   <Input />
                 </Form.Item>
               </Col>
-            </Row>
-            <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-              <Col span={4}>
-                <Form.Item
-                  label="DOB"
-                  name="dob"
-                  rules={[
-                    {
-                      required: true,
-                    },
-                  ]}
-                >
-                  <DatePicker />
-                </Form.Item>
-              </Col>
-              <Col span={4}>
-                <Form.Item
-                  name="gender"
-                  label="Gender"
-                  rules={[{ required: true }]}
-                >
-                  <Select placeholder="Select your gender" allowClear>
-                    <Select.Option value="male">Male</Select.Option>
-                    <Select.Option value="female">Female</Select.Option>
-                    <Select.Option value="other">Other</Select.Option>
-                  </Select>
-                </Form.Item>
-              </Col>
               <Col span={8}>
                 <Form.Item
                   name="phoneNumber"
                   label="Phone Number"
+                  labelCol={{ span: 8 }}
                   rules={[
                     {
                       required: true,
@@ -134,11 +110,42 @@ function SignupForm(props) {
                 </Form.Item>
               </Col>
             </Row>
-            <Row>
-              <Col span={16}>
+            <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+              <Col span={8}>
+                <Form.Item
+                  label="DOB"
+                  labelCol={{ span: 8 }}
+                  name="dob"
+                  rules={[
+                    {
+                      required: true,
+                    },
+                  ]}
+                >
+                  <DatePicker />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  name="gender"
+                  label="Gender"
+                  labelCol={{ span: 8 }}
+                  rules={[{ required: true }]}
+                >
+                  <Select placeholder="Select your gender" allowClear>
+                    <Select.Option value="male">Male</Select.Option>
+                    <Select.Option value="female">Female</Select.Option>
+                    <Select.Option value="other">Other</Select.Option>
+                  </Select>
+                </Form.Item>
+              </Col>
+            </Row>
+            <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+              <Col span={8}>
                 <Form.Item
                   name="address"
                   label="Address"
+                  labelCol={{ span: 8 }}
                   rules={[
                     { required: true, message: "Please enter your address" },
                   ]}
@@ -146,30 +153,33 @@ function SignupForm(props) {
                   <Input />
                 </Form.Item>
               </Col>
-            </Row>
-            <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-              <Col span={6}>
+              <Col span={8}>
                 <Form.Item
                   name="city"
                   label="City"
+                  labelCol={{ span: 8 }}
                   rules={[{ required: true }]}
                 >
                   <Select placeholder="Select your city" allowClear></Select>
                 </Form.Item>
               </Col>
-              <Col span={6}>
+            </Row>
+            <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+              <Col span={8}>
                 <Form.Item
                   name="state"
                   label="State"
+                  labelCol={{ span: 8 }}
                   rules={[{ required: true }]}
                 >
                   <Select placeholder="Select your state" allowClear></Select>
                 </Form.Item>
               </Col>
-              <Col span={6}>
+              <Col span={8}>
                 <Form.Item
                   name="zipCode"
                   label="Zipcode"
+                  labelCol={{ span: 8 }}
                   rules={[
                     { required: true, message: "Please enter your zip code" },
                   ]}
@@ -178,11 +188,12 @@ function SignupForm(props) {
                 </Form.Item>
               </Col>
             </Row>
-            <Row>
+            <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
               <Col span={8}>
                 <Form.Item
                   name="idSnapshot"
                   label="ID Snapshot"
+                  labelCol={{ span: 8 }}
                   rules={[
                     {
                       required: true,
@@ -197,70 +208,93 @@ function SignupForm(props) {
               </Col>
             </Row>
             <Divider>Insurance Details</Divider>
-            <Form.Item
-              name="insuranceStatus"
-              label="Do you have medical insurance?"
-              rules={[
-                { required: true, message: "Insurance details are required" },
-              ]}
-            >
-              <Checkbox.Group options={["Yes", "No"]} value={["No"]} />
-            </Form.Item>
-            {insuranceStatus && (
+            <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+              <Col span={8}>
+                <Form.Item
+                  name="insuranceStatus"
+                  label="Medical Insurance"
+                  labelCol={{ span: 12 }}
+                  rules={[
+                    {
+                      required: true,
+                      message: "Insurance details are required",
+                    },
+                  ]}
+                >
+                  <Checkbox.Group options={["Yes", "No"]} value={["No"]} />
+                </Form.Item>
+              </Col>
+            </Row>
+            {true && (
               <>
-                {" "}
-                <Form.Item
-                  name="insuranceDocFront"
-                  label="Insurance Document Front Photo"
-                  rules={[
-                    {
-                      required: true,
-                      message:
-                        "Please upload the snapshot of your insurance document form front side",
-                    },
-                  ]}
-                >
-                  <Upload {...props}>
-                    <Button icon={<UploadOutlined />}>Upload</Button>
-                  </Upload>
-                </Form.Item>
-                <Form.Item
-                  name="insuranceDocBack"
-                  label="Insurance Document Back Photo"
-                  rules={[
-                    {
-                      required: true,
-                      message:
-                        "Please upload the snapshot of your insurance document form back side",
-                    },
-                  ]}
-                >
-                  <Upload {...props}>
-                    <Button icon={<UploadOutlined />}>Upload</Button>
-                  </Upload>
-                </Form.Item>
-                <Form.Item
-                  name="insuranceCompany"
-                  label="Insurance Company"
-                  rules={[{ required: true }]}
-                >
-                  <Select
-                    placeholder="Select your insurance company"
-                    allowClear
-                  ></Select>
-                </Form.Item>
-                <Form.Item
-                  name="insuranceNumber"
-                  label="Insurance Number"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please enter your insurance number",
-                    },
-                  ]}
-                >
-                  <Input />
-                </Form.Item>
+                <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+                  <Col span={8}>
+                    <Form.Item
+                      name="insuranceDocFront"
+                      label="Insurance Card Front"
+                      labelCol={{ span: 12 }}
+                      rules={[
+                        {
+                          required: true,
+                          message:
+                            "Please upload the snapshot of your insurance document form front side",
+                        },
+                      ]}
+                    >
+                      <Upload {...props}>
+                        <Button icon={<UploadOutlined />}>Upload</Button>
+                      </Upload>
+                    </Form.Item>
+                  </Col>
+                  <Col span={8}>
+                    <Form.Item
+                      name="insuranceDocBack"
+                      label="Insurance Card Back"
+                      labelCol={{ span: 12 }}
+                      rules={[
+                        {
+                          required: true,
+                          message:
+                            "Please upload the snapshot of your insurance document form back side",
+                        },
+                      ]}
+                    >
+                      <Upload {...props}>
+                        <Button icon={<UploadOutlined />}>Upload</Button>
+                      </Upload>
+                    </Form.Item>
+                  </Col>
+                </Row>
+                <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+                  <Col span={8}>
+                    <Form.Item
+                      name="insuranceCompany"
+                      label="Insurance Company"
+                      labelCol={{ span: 12 }}
+                      rules={[{ required: true }]}
+                    >
+                      <Select
+                        placeholder="Select your insurance company"
+                        allowClear
+                      ></Select>
+                    </Form.Item>
+                  </Col>
+                  <Col span={8}>
+                    <Form.Item
+                      name="insuranceNumber"
+                      label="Insurance Number"
+                      labelCol={{ span: 12 }}
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please enter your insurance number",
+                        },
+                      ]}
+                    >
+                      <Input />
+                    </Form.Item>
+                  </Col>
+                </Row>
               </>
             )}
             <Divider>Family Information</Divider>
@@ -372,16 +406,20 @@ function SignupForm(props) {
                       <MinusCircleOutlined onClick={() => remove(field.name)} />
                     </Space>
                   ))}
-                  <Form.Item>
-                    <Button
-                      type="dashed"
-                      onClick={() => add()}
-                      block
-                      icon={<PlusOutlined />}
-                    >
-                      Add family member
-                    </Button>
-                  </Form.Item>
+                  <Row>
+                    <Col span={8} offset={8}>
+                      <Form.Item>
+                        <Button
+                          type="dashed"
+                          onClick={() => add()}
+                          block
+                          icon={<PlusOutlined />}
+                        >
+                          Add family member
+                        </Button>
+                      </Form.Item>
+                    </Col>
+                  </Row>
                 </>
               )}
             </Form.List>
